@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import MonthCard from "../../components/MonthCard";
+import Menu from "../../components/Menu";
 
 const Wrapper = styled.div`
     display: flex;
@@ -8,6 +9,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     padding: 20px;
     background-color: #ebe9e9;
+    margin: 0;
+    padding: 0;
 `
 
 const Container = styled.div`
@@ -20,6 +23,7 @@ const Container = styled.div`
 const Title = styled.div`
   font-size: 70px;
   text-align: center;
+  margin-top: 50px;
   margin-bottom: 50px;
 `;
 
@@ -41,6 +45,7 @@ const Months = () => {
 
   return (
     <Wrapper>
+      <Menu />
       <Title>2025 Calendar</Title>
       <Container>
         {months.map((month) => (

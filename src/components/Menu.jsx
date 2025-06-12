@@ -60,7 +60,7 @@ export default function Menu2() {
         <MenuText2>
             <div style={{cursor: "pointer"}} onClick={() => navigate("/")} >Home</div>
             <div style={{cursor: "pointer"}} onClick={() => navigate("/months")}>Months</div>
-            <div style={{cursor: "pointer"}}>Tasks</div>
+            <div style={{cursor: "pointer"}}  onClick={() => navigate("/tasks")}>Tasks</div>
             <div style={{cursor: "pointer"}}>About Us</div>
             </MenuText2>
 

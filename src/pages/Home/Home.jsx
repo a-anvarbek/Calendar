@@ -121,25 +121,6 @@ const Home = () => {
 
         </HomeCtn>
 
-
-
-
-        <Wrapper>
-      <Title>2025 Calendar</Title>
-      <Container>
-        {months.map((month) => (
-          <MonthCard
-            key={month.name}
-            name={month.name}
-            days={month.days}
-            startFrom={month.startFrom}
-            bgColor={month.bgColor}
-          />
-        ))}
-      </Container>
-    </Wrapper>
-
-
         
         </>
     )   

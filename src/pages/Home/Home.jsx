@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import MonthCard from "../../components/MonthCard";
 
 import Menu from "../../components/Menu";
+import AboutUs from "../AboutUs/AboutUs";
 
 const HomeCtn = styled.div`
   width: 100%;

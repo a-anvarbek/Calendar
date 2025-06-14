@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 const Wrapper = styled.div`
   width: 356px;
-  /* background-color: ${({ bg }) => bg || "#f5f5f5"}; */
   border-radius: 20px;
-  /* padding-bottom: 10px; */
+  cursor: pointer;
 `;
 
 const Header = styled.div`
@@ -24,7 +24,7 @@ const Div = styled.div`
   width: 100%;
   height: 235px;
   background-color: #fff;
-`
+`;
 
 const Week = styled.div`
   display: grid;
@@ -45,6 +45,8 @@ const DateCell = styled.div`
 `;
 
 const MonthCard = ({ name, bgColor, startFrom, days }) => {
+  const navigate = useNavigate();
+
   const daysOfWeek = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
   const dateArray = Array(startFrom).fill("");
@@ -52,8 +54,19 @@ const MonthCard = ({ name, bgColor, startFrom, days }) => {
     dateArray.push(i);
   }
 
+  const handleClick = () => {
+    navigate(`/months/${name.toLowerCase()}`, {
+      state: {
+        name,
+        days,
+        startFrom,
+        bgColor,
+      },
+    });
+  };
+
   return (
-    <Wrapper bg={bgColor}>
+    <Wrapper bg={bgColor} onClick={handleClick}>
       <Header bg={bgColor}>
         <Title>{name}</Title>
       </Header>

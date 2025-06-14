@@ -61,7 +61,7 @@ export default function Menu2() {
             <div style={{cursor: "pointer"}} onClick={() => navigate("/")} >Home</div>
             <div style={{cursor: "pointer"}} onClick={() => navigate("/months")}>Months</div>
             <div style={{cursor: "pointer"}}  onClick={() => navigate("/tasks")}>Tasks</div>
-            <div style={{cursor: "pointer"}}>About Us</div>
+            <div style={{cursor: "pointer"}} onClick={() => navigate("/about-us")}>About Us</div>
             </MenuText2>
 
     </Menu>

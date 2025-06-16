@@ -2,6 +2,8 @@ import { useParams, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import BG from "../../images/MonthDetail.jpg";
+import { useNavigate } from "react-router";
+
 
 // === STYLED COMPONENTS ===
 
@@ -12,6 +14,7 @@ const Wrapper = styled.div`
   background-position: center;
   background-size: cover;
   padding: 50px;
+
 `;
 
 const Title = styled.p`
@@ -167,6 +170,26 @@ const PlanBox2 = styled.div`
   margin-bottom: 20px;
 `;
 
+const ButtonCtn = styled.div`
+width: 100%;
+height: 130px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+`;
+
+const GoButton = styled.button`
+width: 200px;
+height: 40px;
+background-color: #0055ff;
+color: white;
+border: 0;
+border-radius: 10px;
+margin-top: 50px;
+cursor: pointer;
+`;
+
 // === COMPONENT ===
 
 const MonthDetails = () => {
@@ -233,6 +256,8 @@ const MonthDetails = () => {
     }
   };
 
+  
+
   const handleDeletePlan = (index) => {
     setPlans((prev) => {
       const updated = [...prev[selectedDate]];
@@ -264,6 +289,8 @@ const MonthDetails = () => {
     setEditIndex(null);
     setEditText("");
   };
+
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
@@ -371,6 +398,9 @@ const MonthDetails = () => {
           </PlanBox>
         )}
       </Container>
+      <ButtonCtn>
+      <GoButton onClick={() => navigate("/months")}>Go Back</GoButton>
+      </ButtonCtn>
     </Wrapper>
   );
 };

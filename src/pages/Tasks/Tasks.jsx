@@ -5,14 +5,16 @@ import Menu from "../../components/Menu";
 
 const TasksCtn = styled.div`
   width: 100%;
-  height: auto;
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(${Image1});
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
+  background-attachment: fixed; /* 🎯 Qo‘shildi */
   padding: 40px 0;
   display: flex;
   flex-direction: column;
@@ -23,6 +25,7 @@ const Card = styled.div`
   width: 600px;
   padding: 30px;
   background-color: #e6f4ec;
+  margin-top: 100px;
   border-radius: 25px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
@@ -187,7 +190,8 @@ const Tasks = () => {
 
   return (
     <>
-      <Menu />
+     <Menu absolute />
+
       <TasksCtn>
         <Card>
           <Title>Tasks</Title>

@@ -36,7 +36,7 @@ const AboutUs = () => {
 
 
     <>   
-    <Menu />
+     <Menu absolute />
     
     
     

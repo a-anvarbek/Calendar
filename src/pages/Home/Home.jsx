@@ -1,129 +1,167 @@
 import React from "react";
 import styled from "styled-components";
 import onecalendar from "../../images/onecalendar.jpg";
-import Months from "../Months/Months";
-import { useNavigate } from "react-router";
-
-import MonthCard from "../../components/MonthCard";
-
 import Menu from "../../components/Menu";
-import AboutUs from "../AboutUs/AboutUs";
+import { useNavigate } from "react-router";
+import { FaCheckCircle, FaMapMarkerAlt, FaRegCalendarAlt } from "react-icons/fa";
+
 
 const HomeCtn = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
-  z-index: 1;
-  background-color: black;
+  color: white;
+  font-family: sans-serif;
+  overflow: hidden;
 
   &::before {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-image: url(${onecalendar});
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    background: rgba(0, 45, 85, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     z-index: -1;
   }
 `;
 
-const Wrapper2 = styled.div`
-  width: 100%;
-  height: 200px;
-  gap: 20px;
-  margin-top: 20%;
-  font-size: 40px;
+const Navbar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+`;
+
+const NavLogo = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+const NavMenu = styled.div`
+  display: flex;
+  gap: 30px;
+  font-size: 18px;
+`;
+
+const LoginButton = styled.button`
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+`;
+
+const HeroSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
+  margin-top: 100px;
+  gap: 30px;
 `;
 
-const Input = styled.input`
-  width: 500px;
-  height: 50px;
-  border-radius: 30px;
-  border: 0;
-  background-color: #4f4e4e;
-  font-size: 20px;
-  color: white;
-  padding-left: 20px;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  padding: 20px;
-  background-color: #ebe9e9;
-  margin: 0;
-  padding: 0;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: center;
-`;
-
-const Title = styled.div`
-  font-size: 70px;
+const HeroTitle = styled.h1`
+  font-size: 48px;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  line-height: 1.2;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+const MainButton = styled.button`
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffa500;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+const BottomCards = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 25, 50, 0.6);
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 0;
+`;
+
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Icon = styled.div`
+  font-size: 30px;
+`;
+
+const Label = styled.div`
+  font-size: 16px;
 `;
 
 const Home = () => {
-  const months = [
-    { name: "January", days: 31, startFrom: 2, bgColor: "#dbeafe" },
-    { name: "February", days: 28, startFrom: 5, bgColor: "#fde2e2" },
-    { name: "March", days: 31, startFrom: 5, bgColor: "#fbcfe8" },
-    { name: "April", days: 30, startFrom: 1, bgColor: "#d1fae5" },
-    { name: "May", days: 31, startFrom: 3, bgColor: "#fef9c3" },
-    { name: "June", days: 30, startFrom: 6, bgColor: "#d1fae5" },
-    { name: "July", days: 31, startFrom: 5, bgColor: "#ddebe0" },
-    { name: "August", days: 31, startFrom: 4, bgColor: "#fcf0d0" },
-    { name: "September", days: 30, startFrom: 0, bgColor: "#ddebe0" },
-    { name: "October", days: 31, startFrom: 2, bgColor: "#e0ecf1" },
-    { name: "November", days: 30, startFrom: 5, bgColor: "#f7d1d1" },
-    { name: "December", days: 31, startFrom: 0, bgColor: "#fae1d1" },
-  ];
-
+  const navigate = useNavigate();
   return (
-    <>
-      <HomeCtn>
-        <Menu />
+    <HomeCtn>
+    <Menu />
+      <HeroSection>
+        <HeroTitle>
+          Welcome to Smart <br /> Calendar
+        </HeroTitle>
+        <ButtonGroup>
+          <MainButton onClick={() => navigate("/months")}>View My Calendar</MainButton>
+          <MainButton onClick={() => navigate("/tasks")}>Create Task</MainButton>
+        </ButtonGroup>
+      </HeroSection>
 
-        <Wrapper2>
-          <Input></Input>
-          You can search you your <br />
-          month in this input.
-        </Wrapper2>
-      </HomeCtn>
+      <BottomCards>
+  <Card>
+    <Icon>
+      <FaCheckCircle size={40} />
+    </Icon>
+    <Label>Stay Organized</Label>
+  </Card>
+  <Card>
+    <Icon>
+      <FaMapMarkerAlt size={40} />
+    </Icon>
+    <Label>Track Tasks</Label>
+  </Card>
+  <Card>
+    <Icon>
+      <FaRegCalendarAlt size={40} />
+    </Icon>
+    <Label>Plan Your Months</Label>
+  </Card>
+</BottomCards>
 
-      <Wrapper>
-        <Title>2025 Calendar</Title>
-        <Container>
-          {months.map((month) => (
-            <MonthCard
-              key={month.name}
-              name={month.name}
-              days={month.days}
-              startFrom={month.startFrom}
-              bgColor={month.bgColor}
-            />
-          ))}
-        </Container>
-      </Wrapper>
-    </>
+    </HomeCtn>
   );
 };
 

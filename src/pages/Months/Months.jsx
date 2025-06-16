@@ -3,27 +3,38 @@ import styled from "styled-components";
 import MonthCard from "../../components/MonthCard";
 import Menu from "../../components/Menu";
 
+import Image2 from "./Tasks2.png";
 const Wrapper = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #ebe9e9;
-    margin: 0;
-    padding: 0;
-`
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(${Image2});
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* 🎯 Qo‘shildi */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
   justify-content: center;
+  margin-bottom: 50px;
 `;
 
 const Title = styled.div`
   font-size: 70px;
   text-align: center;
   margin-top: 50px;
+  color: white;
   margin-bottom: 50px;
 `;
 
